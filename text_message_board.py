@@ -28,13 +28,10 @@ class TextMessageBoard(object):
         self.id = args['id']
         if self.action == 'create':
             self.message_create()
-            pass
         elif self.action == 'list':
             self.message_list()
-            pass
         elif self.action == 'delete':
             self.message_delete()
-            pass
         else:
             raise ValueError('invalid params action!')
 
@@ -60,7 +57,6 @@ class TextMessageBoard(object):
                 lines = f.readlines()
                 # filter lines
                 lines = list(filter(lambda x: x[:-1].strip() != '', lines))
-                # empty lines=> write   -1==id=> new-text-id=1      -1=0 => new-text-id=1
                 if len(lines) == 0:
                     f.write("id,text,user\n")
                     new_text_id = 1
