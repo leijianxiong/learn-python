@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-from datetime import datetime
+from datetime import datetime, tzinfo, timedelta, timezone
 import time
 
 """
@@ -39,3 +39,8 @@ print(time.time())
 
 #datetime 从时间戳
 print(datetime.fromtimestamp(time.time()))
+
+# 把一个字符串时间转成已是正确时区的timestmp
+now = datetime.now()
+print(time.timezone) #当前时区与utc 时区相差的秒数
+print(now + timedelta(seconds=abs(time.timezone))) #转换这个秒数!
